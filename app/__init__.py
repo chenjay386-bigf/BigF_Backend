@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Api
 
 from app.config import Config
@@ -49,11 +49,25 @@ def create_app(test_config=None):
     register_resources(api)
 
     # ============================================================
-    # HEALTH CHECK
+    # ROUTES
     # ============================================================
+
+    @flask_app.route("/", methods=["GET"])
+    def home():
+        return jsonify({
+            "message": "BIGF API is running!",
+            "endpoints": {
+                "health": "/health",
+                "api": "/api/"
+            }
+        })
 
     @flask_app.route("/health", methods=["GET"])
     def health():
-        return {"status": "ok"}, 200
+        return jsonify({"status": "ok"})
+
+    @flask_app.route("/test", methods=["GET"])
+    def test():
+        return jsonify({"message": "Test route works!"})
 
     return flask_app
