@@ -1,4 +1,3 @@
-
 from flask import Flask
 from flask_restful import Api
 
@@ -24,7 +23,7 @@ def create_app(test_config=None):
 
     db.init_app(flask_app)
     migrate.init_app(flask_app, db)
-    ma.init_app(flask_app)
+    ma.init_app(flask_app)  # ← Fixed: removed "chan"
     jwt.init_app(flask_app)
     cors.init_app(flask_app)
 
@@ -58,4 +57,3 @@ def create_app(test_config=None):
         return {"status": "ok"}, 200
 
     return flask_app
-
