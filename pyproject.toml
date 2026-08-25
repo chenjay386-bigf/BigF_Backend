@@ -1,5 +1,5 @@
 [tool.vercel]
-entrypoint = "wsgi.py:app"
+entrypoint = "app.py:app"
 
 [tool.vercel.scripts]
 install = "pip install -r requirements.txt"

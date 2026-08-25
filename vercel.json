@@ -1,13 +1,13 @@
 {
   "functions": {
-    "wsgi.py": {
+    "app.py": {
       "maxDuration": 60
     }
   },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/wsgi.py"
+      "destination": "/app.py"
     }
   ]
 }
