@@ -1,5 +1,2 @@
-[tool.vercel]
-entrypoint = "app.py:app"
-
 [tool.vercel.scripts]
 install = "pip install -r requirements.txt"
